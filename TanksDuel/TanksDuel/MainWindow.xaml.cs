@@ -1,13 +1,10 @@
 ﻿using OpenTK;
 using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL;
+using OpenTK.Wpf;
 using System;
+using System.Drawing;
 using System.Windows;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Windows.Threading;
 
 namespace TanksDuel
 {
@@ -16,92 +13,63 @@ namespace TanksDuel
     /// </summary>
     public partial class MainWindow : Window
     {
-        private GameWindow window;
-        private DispatcherTimer timer;
-        private WriteableBitmap bitmap;
+        private int screenWidth;
+        private int screenHeight;
 
         public MainWindow()
         {
             InitializeComponent();
+            var settings = new GLWpfControlSettings
+            {
+                MajorVersion = 3,
+                MinorVersion = 1
+            };
+            OpenTkControl.Start(settings);
+            OpenTkControl.Render += OpenTkControl_Render;
+            //OpenTkControl.SizeChanged += OpenTkControl_SizeChanged;
 
-            SetupViewPort();
+            screenWidth = (int)this.Width;
+            screenHeight = (int)this.Height;
+
         }
 
-        public void SetupViewPort()
+        //private void OpenTkControl_SizeChanged(object sender, SizeChangedEventArgs e)
+        //{
+        //    screenWidth = (int)e.NewSize.Width;
+        //    screenHeight = (int)e.NewSize.Height;
+
+        //    GL.Viewport(0, 0, screenWidth, screenHeight);
+        //}
+
+        private void OpenTkControl_Render(TimeSpan obj)
         {
-            this.window = new GameWindow(500, 500, GraphicsMode.Default, "OpenGL Hidden Window");
-            this.MakeContextCurrent(true);
+            GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
+            GL.ClearColor(Color.LightGreen);
 
-            this.window.Size = new System.Drawing.Size(500, 500);
-            GL.Viewport(0, 0, 500, 500);
 
-            /*GL.MatrixMode(MatrixMode.Projection);
+            GL.Enable(EnableCap.Blend);
+            GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
+
+            GL.Viewport(0, 0, screenWidth, screenHeight);
+
+            GL.MatrixMode(MatrixMode.Projection);
             GL.LoadIdentity();
-            GL.Ortho(0, 500, 0, 500, -1d, 1d);
+            GL.Ortho(0, screenWidth, screenHeight, 0, -1, 1);
 
-            GL.MatrixMode(MatrixMode.Modelview);
-            GL.LoadIdentity();*/
+            //TextureRenderer.Begin(screenWidth, screenHeight);
 
-            this.MakeContextCurrent(false);
+            float xOffset = 0f;
+            float yOffset = 0f;
+            float zoom = 0.3f;
 
-            this.bitmap = new WriteableBitmap(500, 500, 96, 96, PixelFormats.Rgb24, null);
-            this.ViewPort.Source = this.bitmap;
+            Texture2D sprite = TextureProcessing.LoadTexture("C:/Users/Shiro/Downloads/tank.png");
+            TextureRenderer.Draw(sprite,
+                                 new Vector2(10 * xOffset, 5 * yOffset),
+                                 new Vector2(sprite.Width * zoom, sprite.Height * zoom));
 
-            this.timer = new DispatcherTimer(DispatcherPriority.Render);
-            this.timer.Interval = TimeSpan.FromMilliseconds(1000d / 30d); //30fps
-            this.timer.Tick += this.Timer_Tick;
-            this.timer.Start();
-        }
-
-        private void Timer_Tick(object sender, EventArgs e)
-        {
-            this.MakeContextCurrent(true);
-
-            GL.Clear(ClearBufferMask.DepthBufferBit | ClearBufferMask.ColorBufferBit);
-
-            //render
-
-            GL.PushMatrix();
-            GL.Begin(PrimitiveType.Quads);
-
-            GL.Color3(1f, 0f, 0f);
-            GL.Vertex3(-0.5, 0.5, 0);
-
-            GL.Color3(0f, 1f, 0f);
-            GL.Vertex3(0.5, 0.5, 0);
-
-            GL.Color3(0f, 0f, 1f);
-            GL.Vertex3(0.5, -0.5, 0);
-
-            GL.Color3(1f, 1f, 1f);
-            GL.Vertex3(-0.5, -0.5, 0);
-
-            GL.End();
-            GL.PopMatrix();
-
-            //Transfer pixels from OpenGL to WPF
-
-            GL.ReadBuffer(ReadBufferMode.Back);
-            this.bitmap.Lock();
-            GL.ReadPixels(0, 0, 500, 500, OpenTK.Graphics.OpenGL.PixelFormat.Rgb, PixelType.UnsignedByte,
-                this.bitmap.BackBuffer);
-            this.bitmap.AddDirtyRect(new Int32Rect(0, 0, 500, 500));
-            this.bitmap.Unlock();
-
-            this.MakeContextCurrent(false);
-
-        }
-
-        public void MakeContextCurrent(bool valid)
-        {
-            if (valid)
-            {
-                this.window.MakeCurrent();
-            }
-            else
-            {
-                this.window.Context.MakeCurrent(null);
-            }
+            GL.Flush();
+            GraphicsContext.CurrentContext.SwapBuffers();
+            OpenTkControl.InvalidateVisual();
         }
     }
 }

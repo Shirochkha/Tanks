@@ -18,3 +18,8 @@ C:\Users\Shiro\source\repos\Tanks\TanksDuel\TanksDuel\obj\Debug\TanksDuel.csproj
 C:\Users\Shiro\source\repos\Tanks\TanksDuel\TanksDuel\obj\Debug\TanksDuel.csproj.CopyComplete
 C:\Users\Shiro\source\repos\Tanks\TanksDuel\TanksDuel\obj\Debug\TanksDuel.exe
 C:\Users\Shiro\source\repos\Tanks\TanksDuel\TanksDuel\obj\Debug\TanksDuel.pdb
+C:\Users\Shiro\source\repos\Tanks\TanksDuel\TanksDuel\bin\Debug\GLWpfControl.dll
+C:\Users\Shiro\source\repos\Tanks\TanksDuel\TanksDuel\bin\Debug\OpenTK.GLControl.dll
+C:\Users\Shiro\source\repos\Tanks\TanksDuel\TanksDuel\bin\Debug\GLWpfControl.pdb
+C:\Users\Shiro\source\repos\Tanks\TanksDuel\TanksDuel\bin\Debug\OpenTK.GLControl.pdb
+C:\Users\Shiro\source\repos\Tanks\TanksDuel\TanksDuel\bin\Debug\OpenTK.GLControl.xml
