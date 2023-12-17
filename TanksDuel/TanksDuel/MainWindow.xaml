@@ -1,0 +1,456 @@
+﻿<Window x:Class="TanksDuel.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TanksDuel"
+        xmlns:opentk="clr-namespace:OpenTK;assembly=OpenTK.GLControl"
+        mc:Ignorable="d"
+        Title="Tanks duel" 
+        
+        WindowStartupLocation="CenterScreen" MinWidth="1280" MinHeight="720" WindowStyle="ToolWindow"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}">
+    <Grid >
+        <Grid x:Name="StartScreen" Panel.ZIndex="3" Visibility="Visible">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Resources/startBack.jpg" />
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition Width="1.5*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="0.5*"/>
+            </Grid.RowDefinitions>
+
+            <Label Content="ТАНКОВАЯ ДУЭЛЬ" 
+                        Foreground="White" FontSize="55" FontWeight="Bold"
+                        FontFamily="/TanksDuel;component/Resources/#Blue curve"
+                        VerticalContentAlignment="Center"
+                        HorizontalAlignment="Center" Margin="105,-121,0,121" Grid.Column="2" Grid.ColumnSpan="2"/>
+
+            <Button x:Name="btnStartServer" 
+                    Content="Создать сервер"
+                    BorderBrush="White"
+                    BorderThickness="2"
+                    Height="50" 
+                    Foreground="White"
+                    FontSize="28"
+                    FontWeight="Bold"
+                    FontFamily="/TanksDuel;component/Resources/#Blue curve"
+                    Grid.Column="2"
+                    Background="CadetBlue" Click="btnStartServer_Click" Margin="105,210,55,228" 
+                    Grid.ColumnSpan="2" />
+
+            <Button x:Name="btnStartClient" 
+                    Content="Подключиться к серверу"
+                    BorderBrush="White"
+                    BorderThickness="2"
+                    Height="50" 
+                    Foreground="White"
+                    FontSize="28"
+                    FontWeight="Bold"
+                    FontFamily="/TanksDuel;component/Resources/#Blue curve"
+                    Grid.Column="2"
+                    Background="CadetBlue" Click="btnStartClient_Click" Margin="105,317,55,121" Grid.ColumnSpan="2"/>
+
+            <Button x:Name="btnExit" Content="Выход"
+                    BorderBrush="White"
+                    BorderThickness="2"
+                    Height="48" Width="206"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Foreground="White"
+                    FontSize="22"
+                    FontWeight="Bold"
+                    FontFamily="/TanksDuel;component/Resources/#Blue curve"
+                    Grid.Column="3"
+                    Background="CadetBlue"
+                    Click="btnExit_Click" Margin="000,500,0,0" Grid.RowSpan="2"/>
+        </Grid>
+        <Grid x:Name="InputServerScreen" Panel.ZIndex="4" Visibility="Hidden">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Resources/InputServer.jpg" />
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.25*"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="0.25*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="1.5*"/>
+            </Grid.RowDefinitions>
+            <Label Content="Подключение к серверу"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Foreground="White"
+                   FontSize="70"
+                   FontWeight="Bold"
+                   FontFamily="/TanksDuel;component/Resources/#Blue curve" Grid.Column="1"/>
+
+            <Label Content="IP-адрес сервера"
+                   Foreground="White"
+                   FontSize="40"
+                   FontWeight="Bold"
+                   FontFamily="/TanksDuel;component/Resources/#Blue curve" 
+                   Grid.Column="1"
+                   Grid.Row="1"
+                   Margin="60,10,0,0"/>
+            <TextBox x:Name="IpAdressText"
+             Grid.Column="1"
+             Grid.Row="1"
+             FontSize="20"
+             MaxHeight="40"
+             Background="White" Margin="65,64,74,199"/>
+
+            <Label Content="Порт"
+                   Foreground="White"
+                   FontSize="40"
+                   FontWeight="Bold"
+                   FontFamily="/TanksDuel;component/Resources/#Blue curve" 
+                   Grid.Column="1"
+                   Grid.Row="1"
+                   Margin="60,150,0,0"/>
+            <TextBox x:Name="PortText"
+             Grid.Column="1"
+             Grid.Row="1"
+             MaxHeight="40"
+             Margin="65,198,84,57"
+             FontSize="20"
+             Background="White"/>
+
+            <Button x:Name="btnClient" 
+                    Content="Подключиться"
+                    BorderBrush="White"
+                    BorderThickness="2"
+                    Height="50" Width="320" 
+                    Foreground="White"
+                    FontSize="28"
+                    FontWeight="Bold"
+                    FontFamily="/TanksDuel;component/Resources/#Blue curve"
+                    Grid.Column="1" Grid.Row="2"
+                    Background="CadetBlue" 
+                    VerticalAlignment="Top"
+                    Click="btnClient_Click"/>
+            <Button x:Name="btnReturn" 
+                    Content="Отмена"
+                    BorderBrush="White"
+                    BorderThickness="2"
+                    Height="50" Width="320" 
+                    Foreground="White"
+                    FontSize="28"
+                    FontWeight="Bold"
+                    FontFamily="/TanksDuel;component/Resources/#Blue curve"
+                    Grid.Column="1" Grid.Row="2"
+                    Background="CadetBlue" 
+                    VerticalAlignment="Top"
+                    Click="btnReturn_Click" Margin="197,78,197,0"/>
+        </Grid>
+        <Grid x:Name="AdressServerScreen" Panel.ZIndex="4" Visibility="Hidden">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Resources/InputServer.jpg" />
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="1.5*"/>
+            </Grid.RowDefinitions>
+            <Label Content="Сервер создан"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Foreground="White"
+                   FontSize="70"
+                   FontWeight="Bold"
+                   FontFamily="/TanksDuel;component/Resources/#Blue curve" Grid.Column="1"/>
+
+            <Label Content="IP-адрес сервера"
+                   Foreground="White"
+                   FontSize="40"
+                   FontWeight="Bold"
+                   FontFamily="/TanksDuel;component/Resources/#Blue curve" 
+                   Grid.Column="1"
+                   Grid.Row="1"
+                   Margin="60,10,0,0"/>
+            <Label Content="{Binding Path=IpAdress}"
+                   Grid.Column="1"
+                   Grid.Row="1"
+                   Foreground="White"
+                   FontSize="60"
+                   FontWeight="Bold"
+                   FontFamily="/TanksDuel;component/Resources/#Blue curve"
+                   Margin="60,60,0,0"/>
+
+            <Label Content="Порт"
+                   Foreground="White"
+                   FontSize="40"
+                   FontWeight="Bold"
+                   FontFamily="/TanksDuel;component/Resources/#Blue curve" 
+                   Grid.Column="1"
+                   Grid.Row="1"
+                   Margin="60,150,0,0"/>
+            <Label Content="{Binding Path=Port}"
+                   Grid.Column="1"
+                   Grid.Row="1"
+                   Foreground="White"
+                   FontSize="60"
+                   FontWeight="Bold"
+                   FontFamily="/TanksDuel;component/Resources/#Blue curve"
+                   Margin="60,200,0,0"/>
+            <Label Content="Ожидание подключения..."
+                   Grid.Column="1"
+                   Grid.Row="2"
+                   HorizontalContentAlignment ="Center"
+                   VerticalAlignment="Top"
+                   Foreground="White"
+                   FontSize="30"
+                   FontWeight="Bold"
+                   FontFamily="/TanksDuel;component/Resources/#Blue curve"/>
+        </Grid>
+        <Grid x:Name="GameScreen" Panel.ZIndex="1" Visibility="Hidden">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Resources/InGame.jpg" />
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="800"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <WindowsFormsHost Initialized="WindowsFormsHost_Initialized" Grid.Column="1">
+                <opentk:GLControl x:Name="renderCanvas" Load="renderCanvas_Load" Paint="renderCanvas_Paint"/>
+            </WindowsFormsHost>
+
+            <Grid Grid.Column="0" Margin="000,120,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="35"/>
+                </Grid.RowDefinitions>
+                <Label Content="ИГРОК" 
+                       Grid.ColumnSpan="2" FontSize="25" FontWeight="Bold"
+                       Foreground="White"
+                       FontFamily="/TanksDuel;component/Resources/#Blue curve"
+                       VerticalContentAlignment="Center"
+                       HorizontalAlignment="Center"/>
+                <Label Content="ЗДОРОВЬЕ" 
+                       Grid.Row="1"
+                       FontSize="18" FontWeight="Bold"
+                       Foreground="White"
+                       FontFamily="/TanksDuel;component/Resources/#Blue curve"
+                       VerticalContentAlignment="Center"
+                       HorizontalAlignment="Right"/>
+                <Label Content="{Binding HealthPlayer}" 
+                       Grid.Row="1" Grid.Column="1"
+                       FontSize="18" FontWeight="Bold"
+                       Foreground="White"
+                       FontFamily="/TanksDuel;component/Resources/#Blue curve"
+                       VerticalContentAlignment="Center"
+                       HorizontalAlignment="Center"/>
+                <Image                      
+                       Grid.Row="1" Grid.Column="2" Source="Resources/Heart.png" Width="30" Margin="0" HorizontalAlignment="Left"/>
+
+                <Label Content="БРОНЯ" 
+                       Grid.Row="2"
+                       FontSize="18" FontWeight="Bold"
+                       Foreground="White"
+                       FontFamily="/TanksDuel;component/Resources/#Blue curve"
+                       VerticalContentAlignment="Center"
+                       HorizontalAlignment="Right"/>
+                <Label Content="{Binding ArmorPlayer}" 
+                       Grid.Row="2" Grid.Column="1"
+                       FontSize="18" FontWeight="Bold"
+                       Foreground="White"
+                       FontFamily="/TanksDuel;component/Resources/#Blue curve"
+                       VerticalContentAlignment="Center"
+                       HorizontalAlignment="Center"/>
+                <Image                      
+                       Grid.Row="2" Grid.Column="2" Source="Resources/Armor.png" Width="30" Margin="0" HorizontalAlignment="Left"/>
+
+                <Label Content="ТОПЛИВО" 
+                       Grid.Row="3"
+                       FontSize="18" FontWeight="Bold"
+                       Foreground="White"
+                       FontFamily="/TanksDuel;component/Resources/#Blue curve"
+                       VerticalContentAlignment="Center"
+                       HorizontalAlignment="Right"/>
+                <Label Content="{Binding FuelPlayer}" 
+                       Grid.Row="3" Grid.Column="1"
+                       FontSize="18" FontWeight="Bold"
+                       Foreground="White"
+                       FontFamily="/TanksDuel;component/Resources/#Blue curve"
+                       VerticalContentAlignment="Center"
+                       HorizontalAlignment="Center"/>
+                <Image                      
+                       Grid.Row="3" Grid.Column="2" Source="Resources/fuel.png" Width="30" Margin="0" HorizontalAlignment="Left"/>
+
+                <Label Content="ПУЛИ" 
+                       Grid.Row="4"
+                       FontSize="18" FontWeight="Bold"
+                       Foreground="White"
+                       FontFamily="/TanksDuel;component/Resources/#Blue curve"
+                       VerticalContentAlignment="Center"
+                       HorizontalAlignment="Right"/>
+                <Label Content="{Binding BulletPlayer}" 
+                       Grid.Row="4" Grid.Column="1"
+                       FontSize="18" FontWeight="Bold"
+                       Foreground="White"
+                       FontFamily="/TanksDuel;component/Resources/#Blue curve"
+                       VerticalContentAlignment="Center"
+                       HorizontalAlignment="Center"/>
+                <Image                      
+                       Grid.Row="4" Grid.Column="2" Source="Resources/bullet.png" Width="30" Margin="0" HorizontalAlignment="Left"/>
+            </Grid>
+
+            <Grid Grid.Column="2" Margin="000,120,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="35"/>
+                </Grid.RowDefinitions>
+                <Label Content="ВРАГ" 
+                       Grid.ColumnSpan="2" FontSize="25" FontWeight="Bold"
+                       Foreground="White"
+                       FontFamily="/TanksDuel;component/Resources/#Blue curve"
+                       VerticalContentAlignment="Center"
+                       HorizontalAlignment="Center"/>
+                <Label Content="ЗДОРОВЬЕ" 
+                       Grid.Row="1"
+                       FontSize="18" FontWeight="Bold"
+                       Foreground="White"
+                       FontFamily="/TanksDuel;component/Resources/#Blue curve"
+                       VerticalContentAlignment="Center"
+                       HorizontalAlignment="Right"/>
+                <Label Content="{Binding HealthEnemy}" 
+                       Grid.Row="1" Grid.Column="1"
+                       FontSize="18" FontWeight="Bold"
+                       Foreground="White"
+                       FontFamily="/TanksDuel;component/Resources/#Blue curve"
+                       VerticalContentAlignment="Center"
+                       HorizontalAlignment="Center"/>
+                <Image                      
+                       Grid.Row="1" Grid.Column="2" Source="Resources/Heart.png" Width="30" Margin="0" HorizontalAlignment="Left"/>
+
+                <Label Content="БРОНЯ" 
+                       Grid.Row="2"
+                       FontSize="18" FontWeight="Bold"
+                       Foreground="White"
+                       FontFamily="/TanksDuel;component/Resources/#Blue curve"
+                       VerticalContentAlignment="Center"
+                       HorizontalAlignment="Right"/>
+                <Label Content="{Binding ArmorEnemy}" 
+                       Grid.Row="2" Grid.Column="1"
+                       FontSize="18" FontWeight="Bold"
+                       Foreground="White"
+                       FontFamily="/TanksDuel;component/Resources/#Blue curve"
+                       VerticalContentAlignment="Center"
+                       HorizontalAlignment="Center"/>
+                <Image                      
+                       Grid.Row="2" Grid.Column="2" Source="Resources/Armor.png" Width="30" Margin="0" HorizontalAlignment="Left"/>
+
+                <Label Content="ТОПЛИВО" 
+                       Grid.Row="3"
+                       FontSize="18" FontWeight="Bold"
+                       Foreground="White"
+                       FontFamily="/TanksDuel;component/Resources/#Blue curve"
+                       VerticalContentAlignment="Center"
+                       HorizontalAlignment="Right"/>
+                <Label Content="{Binding FuelEnemy}" 
+                       Grid.Row="3" Grid.Column="1"
+                       FontSize="18" FontWeight="Bold"
+                       Foreground="White"
+                       FontFamily="/TanksDuel;component/Resources/#Blue curve"
+                       VerticalContentAlignment="Center"
+                       HorizontalAlignment="Center"/>
+                <Image                      
+                       Grid.Row="3" Grid.Column="2" Source="Resources/fuel.png" Width="30" Margin="0" HorizontalAlignment="Left"/>
+
+                <Label Content="ПУЛИ" 
+                       Grid.Row="4"
+                       FontSize="18" FontWeight="Bold"
+                       Foreground="White"
+                       FontFamily="/TanksDuel;component/Resources/#Blue curve"
+                       VerticalContentAlignment="Center"
+                       HorizontalAlignment="Right"/>
+                <Label Content="{Binding BulletEnemy}" 
+                       Grid.Row="4" Grid.Column="1"
+                       FontSize="18" FontWeight="Bold"
+                       Foreground="White"
+                       FontFamily="/TanksDuel;component/Resources/#Blue curve"
+                       VerticalContentAlignment="Center"
+                       HorizontalAlignment="Center"/>
+                <Image                      
+                       Grid.Row="4" Grid.Column="2" Source="Resources/bullet.png" Width="30" Margin="0" HorizontalAlignment="Left"/>
+            </Grid>
+
+        </Grid>
+        <Grid x:Name="EndGameScreen" Panel.ZIndex="0" Visibility="Hidden">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Resources/GameOver.png" />
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="1.5*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="0.5*"/>
+            </Grid.RowDefinitions>
+            <Label Content="{Binding Path=GameOver}"
+                   Grid.ColumnSpan="3"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Foreground="White"
+                   FontSize="100"
+                   FontWeight="Bold"
+                   FontFamily="/TanksDuel;component/Resources/#Blue curve"/>
+            <Button x:Name="btnMenu" 
+                    Content="Вернуться в меню"
+                    BorderBrush="White"
+                    BorderThickness="2"
+                    Height="50" Width="260" 
+                    Foreground="White"
+                    FontSize="28"
+                    FontWeight="Bold"
+                    FontFamily="/TanksDuel;component/Resources/#Blue curve"
+                    Grid.Column="1" Grid.Row="1"
+                    Background="CadetBlue" 
+                    Click="btnMenu_Click"/>
+        </Grid>
+    </Grid>
+</Window>

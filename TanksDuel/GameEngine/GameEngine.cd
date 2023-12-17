@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GameEngine.Objects.Ammo" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACABIAACgBAAAEAQEghACEYAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Objects\Ammo.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GameEngine.Objects.Bonus" Collapsed="true">
+    <Position X="14.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAgAAAAAAAEAAAAEAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Objects\Bonus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameEngine.Objects.Explosion" Collapsed="true">
+    <Position X="16.25" Y="5.75" Width="1.5" />
+    <InheritanceLine Type="GameEngine.Game.GameObject" FixedToPoint="true">
+      <Path>
+        <Point X="14" Y="4.312" />
+        <Point X="14" Y="4.51" />
+        <Point X="16.812" Y="4.51" />
+        <Point X="16.812" Y="5.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAgBAAAIAAEAAAAAAAAAAAAAAABIAAAA=</HashCode>
+      <FileName>Objects\Explosion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameEngine.Objects.Obstacle" Collapsed="true">
+    <Position X="11.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Objects\Obstacles\Base\Obstacle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameEngine.Objects.Dirt" Collapsed="true">
+    <Position X="12.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAgAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Objects\Obstacles\Dirt.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameEngine.Objects.Wall" Collapsed="true">
+    <Position X="10.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAgAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Objects\Obstacles\Wall.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameEngine.Objects.Tank" Collapsed="true">
+    <Position X="13.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAQADYAAggAgFCIAAEAFAgEAAAEBEgAAgAAAABA=</HashCode>
+      <FileName>Objects\Tank.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameEngine.Objects.Weapons" Collapsed="true">
+    <Position X="15" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAIAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Objects\Weapons.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameEngine.Game.GameField" Collapsed="true">
+    <Position X="13.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAgAEAAAxAAAAEAAAAAAAAAAAEAgAAMFAiAIBA=</HashCode>
+      <FileName>Game\GameField.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameEngine.Game.GameObject" Collapsed="true">
+    <Position X="13.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAgBAAAIBAEAAAAAAAACAAAAAAAAAAgA=</HashCode>
+      <FileName>Game\GameObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameEngine.Game.Level" Collapsed="true">
+    <Position X="13.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Game\Level.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameEngine.Game.TextureRepository" Collapsed="true">
+    <Position X="15" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAQAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Game\TextureRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameEngine.Helpers.GLTexture" Collapsed="true">
+    <Position X="11.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helpers\GLTexture.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameEngine.Input.KeyboardController" Collapsed="true">
+    <Position X="16.75" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAgCAACAAAAAAAEAAAAAAEAAAAEECAA=</HashCode>
+      <FileName>Input\KeyboardController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="GameEngine.Objects.IExplodable" Collapsed="true">
+    <Position X="15" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAACAAAAAAAQAgAAAEAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Objects\Interfaces\IExplodable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GameEngine.Input.IController" Collapsed="true">
+    <Position X="17" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgCAACAAAAAAAEAAAAAAEAAAAEAAAA=</HashCode>
+      <FileName>Input\Intefaces\IController.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="GameEngine.Game.GameStatus" Collapsed="true">
+    <Position X="11.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAIAAAAAAACAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Game\GameStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="GameEngine.Input.Direction" Collapsed="true">
+    <Position X="11.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAACICAAAAAAAI=</HashCode>
+      <FileName>Input\Direction.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

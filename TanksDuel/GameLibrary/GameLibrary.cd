@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GameLibrary.Bonuses.AmmunitionBonus" Collapsed="true">
+    <Position X="13.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAABAAAIAAAAAAAEAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Bonuses\AmmunitionBonus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLibrary.Bonuses.ArmorBonus" Collapsed="true">
+    <Position X="13.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAABAAAIAAAAAAAEAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Bonuses\ArmorBonus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLibrary.Bonuses.DamageBonus" Collapsed="true">
+    <Position X="13.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAABAAAIAAAAAAAEAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Bonuses\DamageBonus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLibrary.Bonuses.FuelBonus" Collapsed="true">
+    <Position X="13.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAABAAAIAAAAAAAEAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Bonuses\FuelBonus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLibrary.Bonuses.SpeedBonus" Collapsed="true">
+    <Position X="13.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAABAAAIAAAAAAAEAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Bonuses\SpeedBonus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLibrary.Converters.BonusConverter" Collapsed="true">
+    <Position X="14.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQQAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Converters\BonusConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLibrary.AmmunitionDecorator.AmmoDamageDecorator" Collapsed="true">
+    <Position X="11.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Decorators\AmmunitionDecorator\AmmoDamageDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLibrary.AmmunitionDecorator.AmmoDecorator" Collapsed="true">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAACAAAAAIAQAABACEIAAAAAAgAAAAgAAA=</HashCode>
+      <FileName>Decorators\AmmunitionDecorator\AmmoDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLibrary.AmmunitionDecorator.Bullet" Collapsed="true">
+    <Position X="14.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAACAAAAAIAQAABACEIAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Decorators\AmmunitionDecorator\Bullet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLibrary.Decorators.ArmorTank" Collapsed="true">
+    <Position X="9.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAIAAAEIAAAIAAAEgAAAAAEAAEAAAQAAAAAE=</HashCode>
+      <FileName>Decorators\TankDecorator\ArmorTank.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLibrary.Decorators.NormalTank" Collapsed="true">
+    <Position X="13.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAYAAAABAACAAAAAFAAEAAAEAEgAAAAAAABA=</HashCode>
+      <FileName>Decorators\TankDecorator\Base\NormalTank.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLibrary.Decorators.TankDecorator" Collapsed="true">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAQAAAABAACAAAAAFAAEAAAEAEgAAAABAABA=</HashCode>
+      <FileName>Decorators\TankDecorator\Base\TankDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLibrary.Decorators.BulletTank" Collapsed="true">
+    <Position X="6.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAIAAAAIAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Decorators\TankDecorator\BulletTank.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLibrary.Decorators.DamageBoostTank" Collapsed="true">
+    <Position X="6.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAEIAAAIAAAEgAAAAAAAAAAAAwAAAAAE=</HashCode>
+      <FileName>Decorators\TankDecorator\DamageBoostTank.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLibrary.Decorators.FastTank" Collapsed="true">
+    <Position X="8" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAIAAAEIAAAIAAAEhAAAAAAAAAAAAQAAAAAE=</HashCode>
+      <FileName>Decorators\TankDecorator\FastTank.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLibrary.Decorators.FuelTank" Collapsed="true">
+    <Position X="8" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAIAAAAAAAAIAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Decorators\TankDecorator\FuelTank.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLibrary.Decorators.SlowTank" Collapsed="true">
+    <Position X="9.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAIAAABBAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Decorators\TankDecorator\SlowTank.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLibrary.Factories.AmmunitionBonusFactory" Collapsed="true">
+    <Position X="9" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAEAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Factories\BonusFactory\AmmunitionBonusFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLibrary.Factories.ArmorBonusFactory" Collapsed="true">
+    <Position X="7" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAAAAAAACAA=</HashCode>
+      <FileName>Factories\BonusFactory\ArmorBonusFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLibrary.Factories.BaseBonusFactory" Collapsed="true">
+    <Position X="8" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factories\BonusFactory\Base\BaseBonusFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLibrary.Factories.DamageBonusFactory" Collapsed="true">
+    <Position X="6.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEACAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Factories\BonusFactory\DamageBonusFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLibrary.Factories.FuelBonusFactory" Collapsed="true">
+    <Position X="8" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEEAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Factories\BonusFactory\FuelBonusFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLibrary.Factories.SpeedBonusFactory" Collapsed="true">
+    <Position X="9.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAEAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Factories\BonusFactory\SpeedBonusFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLibrary.Networks.ControllerReactor" Collapsed="true">
+    <Position X="11.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAQAAAAAAAAAAAAAAAgAAAAABAAAAgAAAAAA=</HashCode>
+      <FileName>Networks\ControllerReactor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLibrary.Networks.Message" Collapsed="true">
+    <Position X="11.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAEAQAAAAEAAAAAEAABAQAAAAAAAAA=</HashCode>
+      <FileName>Networks\Message.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLibrary.Weapons.BulletWeapon" Collapsed="true">
+    <Position X="14.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Weapons\BulletWeapon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="GameLibrary.Networks.MessageType" Collapsed="true">
+    <Position X="11.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAKAAAAAAgAAAAAAAAAAAAEAABA=</HashCode>
+      <FileName>Networks\MessageType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
