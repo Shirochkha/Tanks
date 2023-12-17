@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using Newtonsoft.Json;
 
 namespace GameLibrary.Networks
@@ -47,10 +49,8 @@ namespace GameLibrary.Networks
         /// <summary>
         /// Статический метод для десериализации JSON-строки в объект Message
         /// </summary>
-        public static Message FromJson(string json)
-        {
-            return JsonConvert.DeserializeObject<Message>(json);
-        }
+        public static IEnumerable<Message> FromJson(string json) =>
+            json.Split('*').Select(j => JsonConvert.DeserializeObject<Message>(j));
 
         /// <summary>
         /// Метод для сериализации объекта Message в JSON-строку

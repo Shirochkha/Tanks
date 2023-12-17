@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Net.Sockets;
+using System.Text;
 
 namespace GameLibrary.Networks
 {
@@ -32,22 +33,37 @@ namespace GameLibrary.Networks
         private void _controller_Shooting(object sender, EventArgs e)
         {
             var msg = Message.EmptyWithType(MessageType.Shooting);
-            _other.Send(msg);
+
+            using (NetworkStream networkStream = new NetworkStream(_other))
+            {
+                var messageBytes = Encoding.UTF8.GetBytes(msg.ToString() + "*");
+                networkStream.Write(messageBytes, 0, messageBytes.Length);
+            }
         }
 
         private void _controller_StopMoving(object sender, EventArgs e)
         {
             var msg = Message.EmptyWithType(MessageType.StopMoving);
-            _other.Send(msg);
+
+            using (NetworkStream networkStream = new NetworkStream(_other))
+            {
+                var messageBytes = Encoding.UTF8.GetBytes(msg.ToString() + "*");
+                networkStream.Write(messageBytes, 0, messageBytes.Length);
+            }
         }
 
         private void _controller_StartMoving(object sender, EventArgs e)
         {
             var location = Controller.Tank.Location;
             var direction = Controller.CurrentDirection;
-            var jsonData = JsonConvert.SerializeObject(new { Location = location, Direction = direction });
-            var msg = new Message(MessageType.StartMoving, jsonData);
-            _other.Send(msg);
+
+            var msg = new Message(MessageType.StartMoving, $"{location};{direction}");
+
+            using (NetworkStream networkStream = new NetworkStream(_other))
+            {
+                var messageBytes = Encoding.UTF8.GetBytes(msg.ToString() + "*");
+                networkStream.Write(messageBytes, 0, messageBytes.Length);
+            }
         }
     }
 }

@@ -62,3 +62,17 @@ C:\Users\Shiro\Downloads\BattleShips\BattleShips\TanksDuel\GameLibrary\obj\Debug
 C:\Users\Shiro\Downloads\BattleShips\BattleShips\TanksDuel\GameLibrary\obj\Debug\GameLibrary.csproj.CopyComplete
 C:\Users\Shiro\Downloads\BattleShips\BattleShips\TanksDuel\GameLibrary\obj\Debug\GameLibrary.dll
 C:\Users\Shiro\Downloads\BattleShips\BattleShips\TanksDuel\GameLibrary\obj\Debug\GameLibrary.pdb
+C:\Users\Shiro\source\repos\Tanks\TanksDuel\GameLibrary\bin\Debug\GameLibrary.dll
+C:\Users\Shiro\source\repos\Tanks\TanksDuel\GameLibrary\bin\Debug\GameLibrary.pdb
+C:\Users\Shiro\source\repos\Tanks\TanksDuel\GameLibrary\bin\Debug\GameEngine.dll
+C:\Users\Shiro\source\repos\Tanks\TanksDuel\GameLibrary\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Shiro\source\repos\Tanks\TanksDuel\GameLibrary\bin\Debug\OpenTK.dll
+C:\Users\Shiro\source\repos\Tanks\TanksDuel\GameLibrary\bin\Debug\GameEngine.pdb
+C:\Users\Shiro\source\repos\Tanks\TanksDuel\GameLibrary\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Shiro\source\repos\Tanks\TanksDuel\GameLibrary\bin\Debug\OpenTK.pdb
+C:\Users\Shiro\source\repos\Tanks\TanksDuel\GameLibrary\bin\Debug\OpenTK.xml
+C:\Users\Shiro\source\repos\Tanks\TanksDuel\GameLibrary\obj\Debug\GameLibrary.csproj.AssemblyReference.cache
+C:\Users\Shiro\source\repos\Tanks\TanksDuel\GameLibrary\obj\Debug\GameLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Shiro\source\repos\Tanks\TanksDuel\GameLibrary\obj\Debug\GameLibrary.csproj.CopyComplete
+C:\Users\Shiro\source\repos\Tanks\TanksDuel\GameLibrary\obj\Debug\GameLibrary.dll
+C:\Users\Shiro\source\repos\Tanks\TanksDuel\GameLibrary\obj\Debug\GameLibrary.pdb

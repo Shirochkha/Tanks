@@ -531,6 +531,7 @@ namespace TanksDuel
                 case Key.D:
                     if (_myController != null)
                         _myController.StopMove();
+                        
                     break;
             }
         }
@@ -560,6 +561,7 @@ namespace TanksDuel
                 GameScreen.Visibility = Visibility.Hidden;
                 EndGameScreen.Visibility = Visibility.Visible;
             }
+
             renderCanvas.Invalidate();
         }
 
@@ -696,11 +698,12 @@ namespace TanksDuel
         /// </summary>
         private async void btnStartServer_Click(object sender, RoutedEventArgs e)
         {
-            const string HOST = "127.0.0.1";
+            //const string HOST = "127.0.0.1";
+             string host = GetLocalIPv4();
 
-            if (IsPortAvailable(HOST, port))
+            if (IsPortAvailable(host, port))
             {
-                var endpoint = new IPEndPoint(IPAddress.Parse(HOST), port);
+                var endpoint = new IPEndPoint(IPAddress.Parse(host), port);
                 Socket serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
                 try
@@ -727,13 +730,19 @@ namespace TanksDuel
 
                         var playerPosJson = $"{enemy.Location.X} {enemy.Location.Y}";
                         var playerPositionMsg = new Message(MessageType.Location, playerPosJson);
-                        byte[] buffer = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(playerPositionMsg));
-                        ClientSocket.Send(buffer);
+                        using (NetworkStream networkStream = new NetworkStream(ClientSocket))
+                        {
+                            var messageBytes = Encoding.UTF8.GetBytes(playerPositionMsg.ToString() + "*");
+                            networkStream.Write(messageBytes, 0, messageBytes.Length);
+                        }
 
                         var enemyPosJson = $"{player.Location.X} {player.Location.Y}";
                         var enemyPositionMsg = new Message(MessageType.Location, enemyPosJson);
-                        buffer = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(enemyPositionMsg));
-                        ClientSocket.Send(buffer);
+                        using (NetworkStream networkStream = new NetworkStream(ClientSocket))
+                        {
+                            var messageBytes = Encoding.UTF8.GetBytes(enemyPositionMsg.ToString() + "*");
+                            networkStream.Write(messageBytes, 0, messageBytes.Length);
+                        }
 
                         new ControllerReactor(_myController, ClientSocket);
 
@@ -815,7 +824,8 @@ namespace TanksDuel
             byte[] buffer = new byte[1024 * 8];
             int bytesRead = clientSocket.Receive(buffer);
             string dataReceived = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-            Message receivedMessage = Message.FromJson(dataReceived);
+            var receivedMessage = Message.FromJson(dataReceived).First();
+
             if (receivedMessage?.Type == MessageType.Location)
             {
                 var point = receivedMessage.Content.Split();
@@ -826,7 +836,7 @@ namespace TanksDuel
             buffer = new byte[1024 * 8];
             bytesRead = clientSocket.Receive(buffer);
             dataReceived = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-            receivedMessage = Message.FromJson(dataReceived);
+            receivedMessage = Message.FromJson(dataReceived).First();
             if (receivedMessage?.Type == MessageType.Location)
             {
                 var point = receivedMessage.Content.Split();
@@ -878,44 +888,53 @@ namespace TanksDuel
                     if (bytesRead > 0)
                     {
                         var dataReceived = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-                        var receivedMessage = Message.FromJson(dataReceived);
-                        switch (receivedMessage.Type)
+                        var receivedMessages = Message.FromJson(dataReceived);
+                        foreach (var receivedMessage in receivedMessages)
                         {
-                            case MessageType.Location:
-                                var point = receivedMessage.Content.Split();
-                                enemy.Location = new Point(int.Parse(point[0]), int.Parse(point[1]));
-                                Debug.WriteLine($"Получены данные: {dataReceived}");
-                                break;
-                            case MessageType.StartMoving:
-                                var receivedData = JsonConvert.DeserializeAnonymousType(receivedMessage.Content, new { Location = default(Point), Direction = default(Direction) });
-                                var receivedLocation = receivedData.Location;
-                                var receivedDirection = receivedData.Direction;
-                                _enemyController.CurrentDirection = receivedDirection;
-                                _enemyController.Tank.Location = receivedLocation;
-                                enemy._controller_StartMoving(null, null);
-                                Debug.WriteLine("Враг начал движение");
-                                break;
-                            case MessageType.StopMoving:
-                                enemy._controller_StopMoving(null, null);
-                                Debug.WriteLine($"Враг закончил движение");
-                                break;
-                            case MessageType.Shooting:
-                                enemy._controller_Shooting(null, null);
-                                Debug.WriteLine($"Враг стреляет bp 1");
-                                break;
-                            case MessageType.Bonus:
-                                var bonus = JsonConvert.DeserializeObject<Bonus>(receivedMessage.Content, new JsonSerializerSettings
-                                {
-                                    Converters = new List<JsonConverter> { new BonusConverter() }
-                                });
-                                bonus.GameField = _gameField;
-                                _gameField.Bonuses.Add(bonus);
-                                Debug.WriteLine($"Бонус заспавнился");
-                                break;
-                            default:
-                                Debug.WriteLine($"Неверный тип сообщения: {receivedMessage.Type}");
-                                break;
+                            if (receivedMessage == null) continue;
+                            switch (receivedMessage.Type)
+                            {
+                                case MessageType.Location:
+                                    var point = receivedMessage.Content.Split();
+                                    enemy.Location = new Point(int.Parse(point[0]), int.Parse(point[1]));
+                                    Debug.WriteLine($"Получены данные: {dataReceived}");
+                                    break;
+                                case MessageType.StartMoving:
+                                    var receivedData = receivedMessage.Content.Split(';');
+                                    var receivedLocationString = receivedData[0].Trim('{', '}');
+                                    var receivedLocationParts = receivedLocationString.Split(',');
+                                    var receivedX = int.Parse(receivedLocationParts[0].Split('=')[1].Trim());
+                                    var receivedY = int.Parse(receivedLocationParts[1].Split('=')[1].Trim());
+                                    var receivedDirection = (Direction)Enum.Parse(typeof(Direction), receivedData[1]);
+                                    _enemyController.CurrentDirection = receivedDirection;
+                                    enemy._controller_StartMoving(null, null);
+                                    if (_enemyController.Tank.Location != new Point(receivedX, receivedY))
+                                        _enemyController.Tank.Location = new Point(receivedX, receivedY);
+                                    Debug.WriteLine("Враг начал двиsжение");
+                                    break;
+                                case MessageType.StopMoving:
+                                    enemy._controller_StopMoving(null, null);
+                                    Debug.WriteLine($"Враг закончил движение");
+                                    break;
+                                case MessageType.Shooting:
+                                    enemy._controller_Shooting(null, null);
+                                    Debug.WriteLine($"Враг стреляет");
+                                    break;
+                                case MessageType.Bonus:
+                                    var bonus = JsonConvert.DeserializeObject<Bonus>(receivedMessage.Content, new JsonSerializerSettings
+                                    {
+                                        Converters = new List<JsonConverter> { new BonusConverter() }
+                                    });
+                                    bonus.GameField = _gameField;
+                                    _gameField.Bonuses.Add(bonus);
+                                    Debug.WriteLine($"Бонус заспавнился");
+                                    break;
+                                default:
+                                    Debug.WriteLine($"Неверный тип сообщения: {receivedMessage.Type}");
+                                    break;
+                            }
                         }
+
                     }
                 }
 
@@ -992,7 +1011,12 @@ namespace TanksDuel
                         ReferenceLoopHandling = ReferenceLoopHandling.Ignore
                     });
                     var msg = new Message(MessageType.Bonus, json);
-                    ClientSocket.Send(msg);
+
+                    using (NetworkStream networkStream = new NetworkStream(ClientSocket))
+                    {
+                        var messageBytes = Encoding.UTF8.GetBytes(msg.ToString() + "*");
+                        networkStream.Write(messageBytes, 0, messageBytes.Length);
+                    }
                     Debug.WriteLine("Бонус создан");
                 }
                 catch (Exception ex)
