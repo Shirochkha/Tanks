@@ -1,0 +1,54 @@
+D:\Documents\Projects\Freelancehunt_Данила_Храпуцкий\BattleShips\GameEngine\obj\Debug\GameEngine.csproj.CoreCompileInputs.cache
+D:\Documents\Projects\Freelancehunt_Данила_Храпуцкий\BattleShips\GameEngine\bin\Debug\GameEngine.dll
+D:\Documents\Projects\Freelancehunt_Данила_Храпуцкий\BattleShips\GameEngine\bin\Debug\GameEngine.pdb
+D:\Documents\Projects\Freelancehunt_Данила_Храпуцкий\BattleShips\GameEngine\bin\Debug\OpenTK.dll
+D:\Documents\Projects\Freelancehunt_Данила_Храпуцкий\BattleShips\GameEngine\bin\Debug\OpenTK.pdb
+D:\Documents\Projects\Freelancehunt_Данила_Храпуцкий\BattleShips\GameEngine\bin\Debug\OpenTK.xml
+D:\Documents\Projects\Freelancehunt_Данила_Храпуцкий\BattleShips\GameEngine\obj\Debug\GameEngine.csproj.CopyComplete
+D:\Documents\Projects\Freelancehunt_Данила_Храпуцкий\BattleShips\GameEngine\obj\Debug\GameEngine.dll
+D:\Documents\Projects\Freelancehunt_Данила_Храпуцкий\BattleShips\GameEngine\obj\Debug\GameEngine.pdb
+D:\Documents\Projects\Freelancehunt_Данила_Храпуцкий\BattleShips\GameEngine\obj\Debug\GameEngine.csprojAssemblyReference.cache
+C:\Users\xddan\Downloads\BattleShips (4)\BattleShips\GameEngine\bin\Debug\GameEngine.dll
+C:\Users\xddan\Downloads\BattleShips (4)\BattleShips\GameEngine\bin\Debug\GameEngine.pdb
+C:\Users\xddan\Downloads\BattleShips (4)\BattleShips\GameEngine\bin\Debug\OpenTK.dll
+C:\Users\xddan\Downloads\BattleShips (4)\BattleShips\GameEngine\bin\Debug\OpenTK.pdb
+C:\Users\xddan\Downloads\BattleShips (4)\BattleShips\GameEngine\bin\Debug\OpenTK.xml
+C:\Users\xddan\Downloads\BattleShips (4)\BattleShips\GameEngine\obj\Debug\GameEngine.csprojAssemblyReference.cache
+C:\Users\xddan\Downloads\BattleShips (4)\BattleShips\GameEngine\obj\Debug\GameEngine.csproj.CoreCompileInputs.cache
+C:\Users\xddan\Downloads\BattleShips (4)\BattleShips\GameEngine\obj\Debug\GameEngine.csproj.CopyComplete
+C:\Users\xddan\Downloads\BattleShips (4)\BattleShips\GameEngine\obj\Debug\GameEngine.dll
+C:\Users\xddan\Downloads\BattleShips (4)\BattleShips\GameEngine\obj\Debug\GameEngine.pdb
+C:\Users\xddan\OneDrive\Рабочий стол\BattleShips\BattleShips\GameEngine\bin\Debug\GameEngine.dll
+C:\Users\xddan\OneDrive\Рабочий стол\BattleShips\BattleShips\GameEngine\bin\Debug\GameEngine.pdb
+C:\Users\xddan\OneDrive\Рабочий стол\BattleShips\BattleShips\GameEngine\bin\Debug\OpenTK.dll
+C:\Users\xddan\OneDrive\Рабочий стол\BattleShips\BattleShips\GameEngine\bin\Debug\OpenTK.pdb
+C:\Users\xddan\OneDrive\Рабочий стол\BattleShips\BattleShips\GameEngine\bin\Debug\OpenTK.xml
+C:\Users\xddan\OneDrive\Рабочий стол\BattleShips\BattleShips\GameEngine\obj\Debug\GameEngine.csproj.CoreCompileInputs.cache
+C:\Users\xddan\OneDrive\Рабочий стол\BattleShips\BattleShips\GameEngine\obj\Debug\GameEngine.csproj.CopyComplete
+C:\Users\xddan\OneDrive\Рабочий стол\BattleShips\BattleShips\GameEngine\obj\Debug\GameEngine.dll
+C:\Users\xddan\OneDrive\Рабочий стол\BattleShips\BattleShips\GameEngine\obj\Debug\GameEngine.pdb
+C:\Users\xddan\OneDrive\Рабочий стол\BattleShips\BattleShips\GameEngine\obj\Debug\GameEngine.csprojAssemblyReference.cache
+C:\Users\Shiro\Downloads\BattleShips\BattleShips\BattleShips\GameEngine\bin\Debug\GameEngine.dll
+C:\Users\Shiro\Downloads\BattleShips\BattleShips\BattleShips\GameEngine\bin\Debug\GameEngine.pdb
+C:\Users\Shiro\Downloads\BattleShips\BattleShips\BattleShips\GameEngine\bin\Debug\OpenTK.dll
+C:\Users\Shiro\Downloads\BattleShips\BattleShips\BattleShips\GameEngine\bin\Debug\OpenTK.pdb
+C:\Users\Shiro\Downloads\BattleShips\BattleShips\BattleShips\GameEngine\bin\Debug\OpenTK.xml
+C:\Users\Shiro\Downloads\BattleShips\BattleShips\BattleShips\GameEngine\obj\Debug\GameEngine.csproj.AssemblyReference.cache
+C:\Users\Shiro\Downloads\BattleShips\BattleShips\BattleShips\GameEngine\obj\Debug\GameEngine.csproj.CoreCompileInputs.cache
+C:\Users\Shiro\Downloads\BattleShips\BattleShips\BattleShips\GameEngine\obj\Debug\GameEngine.csproj.CopyComplete
+C:\Users\Shiro\Downloads\BattleShips\BattleShips\BattleShips\GameEngine\obj\Debug\GameEngine.dll
+C:\Users\Shiro\Downloads\BattleShips\BattleShips\BattleShips\GameEngine\obj\Debug\GameEngine.pdb
+C:\Users\Shiro\Downloads\BattleShips\BattleShips\BattleShips\GameEngine\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Shiro\Downloads\BattleShips\BattleShips\BattleShips\GameEngine\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Shiro\Downloads\BattleShips\BattleShips\TanksDuel\GameEngine\bin\Debug\GameEngine.dll
+C:\Users\Shiro\Downloads\BattleShips\BattleShips\TanksDuel\GameEngine\bin\Debug\GameEngine.pdb
+C:\Users\Shiro\Downloads\BattleShips\BattleShips\TanksDuel\GameEngine\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Shiro\Downloads\BattleShips\BattleShips\TanksDuel\GameEngine\bin\Debug\OpenTK.dll
+C:\Users\Shiro\Downloads\BattleShips\BattleShips\TanksDuel\GameEngine\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Shiro\Downloads\BattleShips\BattleShips\TanksDuel\GameEngine\bin\Debug\OpenTK.pdb
+C:\Users\Shiro\Downloads\BattleShips\BattleShips\TanksDuel\GameEngine\bin\Debug\OpenTK.xml
+C:\Users\Shiro\Downloads\BattleShips\BattleShips\TanksDuel\GameEngine\obj\Debug\GameEngine.csproj.AssemblyReference.cache
+C:\Users\Shiro\Downloads\BattleShips\BattleShips\TanksDuel\GameEngine\obj\Debug\GameEngine.csproj.CoreCompileInputs.cache
+C:\Users\Shiro\Downloads\BattleShips\BattleShips\TanksDuel\GameEngine\obj\Debug\GameEngine.csproj.CopyComplete
+C:\Users\Shiro\Downloads\BattleShips\BattleShips\TanksDuel\GameEngine\obj\Debug\GameEngine.dll
+C:\Users\Shiro\Downloads\BattleShips\BattleShips\TanksDuel\GameEngine\obj\Debug\GameEngine.pdb

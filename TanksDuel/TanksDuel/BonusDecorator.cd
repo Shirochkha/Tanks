@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GameLibrary.Decorators.TankDecorator" Collapsed="true">
+    <Position X="8.5" Y="3" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GameLibrary.Decorators.ArmorTank" Collapsed="true">
+    <Position X="7" Y="4" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GameLibrary.Decorators.BulletTank" Collapsed="true">
+    <Position X="6.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GameLibrary.Decorators.DamageBoostTank" Collapsed="true">
+    <Position X="8.25" Y="4.75" Width="1.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GameLibrary.Decorators.FastTank" Collapsed="true">
+    <Position X="10.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GameLibrary.Decorators.FuelTank" Collapsed="true">
+    <Position X="8.75" Y="4" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GameLibrary.Decorators.SlowTank" Collapsed="true">
+    <Position X="10.5" Y="4" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GameEngine.Objects.Tank" Collapsed="true">
+    <Position X="8.5" Y="2" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
